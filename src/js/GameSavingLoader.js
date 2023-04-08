@@ -17,8 +17,7 @@ export default class GameSavingLoader {
         const saveObj = new GameSavingLoader(saving.id, saving.created, saving.userInfo);
         return saveObj;
       }).catch((error) => {
-        throw new Error(error);
+        console.log(error);
       });
   }
 }
-

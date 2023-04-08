@@ -1,6 +1,5 @@
 export default function read() {
-  return new Promise((resolve) => {
-    // эмуляция чтения файла
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       const data = '{"id":9,"created":1546300800,"userInfo":{"id":1,"name":"Hitman","level":10,"points":2000}}';
       return ((input) => {
@@ -10,6 +9,7 @@ export default function read() {
           bufferView[i] = input.charCodeAt(i);
         }
         resolve(buffer);
+        reject(new Error('Ошибка!'));
       })(data);
     }, 1000);
   });
